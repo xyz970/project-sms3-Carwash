@@ -1,7 +1,8 @@
 <?php
-class BaseController
+require_once(APP_PATH.'traits/Request.php');
+class ApiController
 {
-
+    use Request;
     public function succesResponse($data = '', $message = "Success")
     {
         header('Content-Type: application/json');

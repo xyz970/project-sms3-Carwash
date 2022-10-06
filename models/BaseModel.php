@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include APP_PATH.'traits/koneksi.php';
 class BaseModel{
     use Koneksi;
 
