@@ -20,7 +20,7 @@ class UserController extends ApiController{
         //         break;
         //     }
         // }
-        $data = $this->get('id');
+        $data = $this->input()->get('id');
         $this->succesResponse($data);
     }
 

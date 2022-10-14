@@ -1,6 +1,17 @@
 <?php
+require_once 'config/autoload.php';
 define('APP_PATH', './');
+define('CONTROLLER_PATH', APP_PATH . 'controllers/');
+define('VIEW_PATH', APP_PATH . 'views/');
 define('API_CONTROLLER_PATH', APP_PATH . 'controllers/api/');
+define('MODELS_PATH', APP_PATH . 'models/');
+define('TRAIT_PATH', APP_PATH . 'traits/');
+define('ASSET_PATH',APP_PATH.'assets/');
+
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
 /**
  * Note:
@@ -14,6 +25,7 @@ define('API_CONTROLLER_PATH', APP_PATH . 'controllers/api/');
  * URL == URI Tapi URI != URL
  *  
  */
+
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
@@ -24,6 +36,25 @@ if (strtolower($uri[3]) == "api") {
     $requestMethod = strtolower($_SERVER['REQUEST_METHOD']);
     $targetClass = $class . 'Controller';
     $controller = new $targetClass();
-    $strMethodName = $requestMethod.ucfirst($uri[5]);
+    $strMethodName = $requestMethod . ucfirst($uri[5]);
     $controller->$strMethodName();
+} else {
+    if ($uri[3] == "") {
+        require CONTROLLER_PATH . 'IndexController.php';
+        $indx = new IndexController();
+        $indx->getIndex();
+    } else {
+
+        $class = ucfirst($uri[3]);
+        $file = CONTROLLER_PATH . $class . "Controller.php";
+        require $file;
+        $requestMethod = strtolower($_SERVER['REQUEST_METHOD']);
+        $targetClass = $class . 'Controller';
+        $controller = new $targetClass();
+        $strMethodName = $requestMethod . ucfirst($uri[4]);
+        if (empty($uri[4])) {
+            $strMethodName = $requestMethod . 'Index';
+        }
+        $controller->$strMethodName();
+    }
 }
