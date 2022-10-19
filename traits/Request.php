@@ -1,5 +1,6 @@
 <?php
 // namespace Traits;
+// namespace traits\Request;
 trait Request
 {
 

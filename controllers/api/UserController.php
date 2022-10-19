@@ -1,6 +1,5 @@
 <?php
-require_once APP_PATH.'controllers/ApiController.php';
-require_once APP_PATH.'models/User.php';
+
 class UserController extends ApiController{
 
     /**

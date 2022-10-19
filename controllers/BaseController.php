@@ -1,7 +1,4 @@
 <?php
-// use Traits\Request;
-require './traits/Request.php';
-
 class BaseController
 {
     use Request;

@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "classmap": ["controllers","traits","models"]
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "firebase/php-jwt": "^6.3"
+    }
+}
