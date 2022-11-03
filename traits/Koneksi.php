@@ -14,7 +14,7 @@ trait Koneksi
         $server = "localhost";
         $username = "adi_sptro";
         $password = "12345678";
-        $db = "mydts";
+        $db = "nb-carwash";
         $koneksi = mysqli_connect($server, $username, $password, $db);
 
         if (mysqli_connect_error()) {

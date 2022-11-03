@@ -4,7 +4,7 @@ class IndexController extends BaseController
 {
     public function getIndex()
     {
-        return $this->view('home');
+        return $this->view('login');
     }
     
 }
