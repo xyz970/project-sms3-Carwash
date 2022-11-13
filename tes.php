@@ -16,10 +16,12 @@
 // // $path =
 // $path = str_replace(['.'],['/'],$folder);
 // print_r(VIEW_PATH."$path.php");
+$tes1 = 1;
+$tes2 = 2;
 
 $array = array(
-    'email' => "sdjakals",
-    'password' => "slkahdkhasd",
+    'email' => $tes1,
+    'password' => $tes2,
 );
 // // print_r(http_build_query($array, '', ','));
 // // echo $array['email'];
@@ -31,7 +33,7 @@ $array = array(
 function mapped_implode($glue, $array, $symbol = '=') {
     return implode($glue, array_map(
             function($k, $v) use($symbol) {
-                return "`".$k."`" . $symbol . $v."";
+                return "`".$k."`" . $symbol . "'".$v."'";
             },
             array_keys($array),
             array_values($array)
@@ -47,13 +49,13 @@ function mapped_implode($glue, $array, $symbol = '=') {
 //     7 => 'Foo',
 // ];
 
-// echo mapped_implode(', ', $array, );
+echo mapped_implode(', ', $array, );
 
-$str = "Saya ingin belajar auto perf";
-$array = explode(' ',$str);
+// $str = "Saya ingin belajar auto perf";
+// $array = explode(' ',$str);
 
-for ($i=0; $i < count($array); $i++) { 
-    if (strlen($array[$i]) == 4) {
-        echo ' '.$array[$i].' ';
-    }
-}
+// for ($i=0; $i < count($array); $i++) { 
+//     if (strlen($array[$i]) == 4) {
+//         echo ' '.$array[$i].' ';
+//     }
+// }

@@ -21,9 +21,13 @@ class AuthController extends BaseController
                 header("Location: ".BASE_URL."admin");
             }   
         }
-        // $data['hello'] = "Hello World";
-        // $template = 'subfolder.tes12';
-        // return $this->view($template,$data);
+    }
+
+    public function getLogout()
+    {
+        session_destroy();
+        header("Location: ".BASE_URL."");
+        
     }
 
 }
